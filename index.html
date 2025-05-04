@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selam Ben Kaiser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="kaiser">KAISER</a>
+        
+        <nav id="navbar">
+            <a href="#anasayfa">Kaiser</a>
+            <a href="#kutucuklar">Hedeflerim</a>
+            <a href="#günlük">Günlüğüm</a>
+        </nav>
+        
+        <div class="menu-icon" id="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    
+    <main>
+        <section id="anasayfa" class="me">
+            <div class="me-content">
+                <h1>Selam, Ben Kaiser</h1>
+                <p>Elektrik-Elektronik öğrenciyim (Pişmanlık) 17 Yaşındayım normal bir insanım galiba yeni şeyler öğrenmeye meraklıyım oyun oynamayı çok severim onun dışında son zamanlarda ders çalışıyorum (yks dolayısıyla) iletişime geçmek istersen aşşağıda sosyal medya hesaplarım bulunyor.</p>
+                <div class="sosyal">
+                    <a href="https://github.com/mimoritouka"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/users/882631546429911081"><i class="fab fa-discord"></i></a>
+                    <a href="https://www.instagram.com/kiritolax"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="me-img">
+                <img src="me.jpg" alt="Kaiser">
+            </div>
+        </section>
+        
+        <section id="kutucuklar" class="kutucuklar">
+            <h2 class="section-title">Hedeflerim</h2>
+            <div class="kutucuklar-container">
+                <div class="kutucuklar">
+                    <h3>Anime Sitesi</h3>
+                    <p>Türkiye'de şu anda internet üzerinde yasal ve orijinal içerikle anime yayınlayan bir platform bulunmuyor. Ben ise gelecekte lisans haklarını alarak, telif kurallarına tamamen uyan, yasal ve kaliteli bir anime yayın platformu kurmak istiyorum</p>
+                </div>
+                <div class="kutucuklar">
+                    <h3>Mobil Uygulama</h3>
+                    <p>Mobil tarafa ilgim var gelecekte flutter,kotlin gibi dilleri öğrenip bu alanda projeler üretmek istiyorum.</p>
+                </div>
+                <div class="kutucuklar">
+                    <h3>Oyun geliştirme</h3>
+                    <p>Küçüklükten beri olan hayalim bir oyun geliştirmek, ama öyle online falan değil, hikayeli bir oyun. Bir gün umarım hayalim gerçek olur, olursa güzel olur, olmazsa güzel olmaz. Godot kullanıyorum genel olarak ama Unity ile Unreal Engine'ye de hakimim.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="günlük" class="tarih">
+            <br>
+            <br>
+            <h2 class="section-title">Günlüğüm</h2>
+            <div class="günlük-entries">
+                <div class="günlük-entry">
+                    <div class="günlük-date">1 Mayıs 2025</div>
+                    <h3 class="günlük-title">Linux</h3>
+                    <p class="günlük-content">4 gün önce Linux’a geçtim, aslında uzun bir aradan sonra tekrar kullanmaya başladım. Eskiden sadece Kali Linux kulanmıştım :D, o kadar da tecrübem yoktu. Neyse günlük yeri bari bir şeyler yazalım, Linux Windows’a göre kat kat daha hızlı. Klavye kısayolları sayesinde işleri çok daha hızlı yapabiliyorum ve 2025'te hâlâ oyun oynanabiliyor. Gerçekten çok verimli bir sistem.</p>
+                </div>
+                <div class="günlük-entry">
+                    <div class="günlük-date">4 Mayıs 2025</div>
+                    <h3 class="günlük-title">Portofolyo sitesi</h3>
+                    <p class="günlük-content">Hmm galiba bugün yaptığım bir şey bu site neyse burayı okuyan kişi sana biraz kendimden bahsedeyim valla hiç noktalama fln uğraşamam oku veya okuma keyfine kalmış burası 17 yaşındayım anime izlemeyi severim öğrendiğim ve bildiğim programlama dilleri şöyle JavaScript,GdScript,Html,Css ve Typescript bu şekil işte manga okumaya bayılırım ve tarihle ilgilenirim</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.getElementById('navbar').classList.toggle('active');
+        });
+        
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navbar').classList.remove('active');
+            });
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
