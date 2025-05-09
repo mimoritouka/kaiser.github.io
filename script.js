@@ -19,6 +19,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetElement.offsetTop - 80,
                 behavior: 'smooth'
             });
+
         }
     });
 });
