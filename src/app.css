@@ -1,0 +1,154 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@config "../tailwind.config.js";
+
+:root {
+  --accent-color: #6366f1; /* Indigo as default accent */
+  --accent-color-hover: #4f46e5;
+  --accent-color-light: #818cf8;
+  --accent-color-dark: #3730a3;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --surface-light: #f9fafb;
+  --surface-dark: #1f2937;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* Dark mode color variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300;
+}
+
+/* Libadwaita-style components */
+@layer components {
+  /* Button styles */
+  .adw-button {
+    @apply px-4 py-2 rounded-md text-sm font-medium transition-all duration-200
+    bg-white/80 dark:bg-gray-800/80 hover:bg-gray-100 dark:hover:bg-gray-700
+    border border-gray-200 dark:border-gray-700
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  .adw-button-primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white border-transparent
+    dark:bg-indigo-600 dark:hover:bg-indigo-700;
+  }
+
+  /* Card styles */
+  .adw-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm
+    border border-gray-100 dark:border-gray-700
+    transition-all duration-300 hover:shadow-md;
+  }
+
+  /* Enhanced underline animation that matches libadwaita style */
+  .underline-animation {
+    position: relative;
+    @apply transition-all ease-in duration-200 
+    hover:text-indigo-600 dark:hover:text-indigo-400 
+    active:scale-[0.98] active:ease-out;
+  }
+
+  .underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    @apply bg-indigo-500 dark:bg-indigo-400;
+  }
+
+  .underline-animation:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Libadwaita-style header elements */
+  .adw-header {
+    @apply sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md
+    border-b border-gray-200 dark:border-gray-800
+    transition-all duration-300;
+  }
+
+  .adw-header-elevated {
+    @apply shadow-sm bg-white/95 dark:bg-gray-900/95;
+  }
+
+  /* Navigation menu */
+  .adw-nav-item {
+    @apply px-4 py-2 rounded-md text-sm font-medium 
+    transition-colors relative
+    hover:bg-gray-100 dark:hover:bg-gray-800;
+  }
+
+  .adw-nav-item-active {
+    @apply bg-gray-100 dark:bg-gray-800
+    font-semibold text-indigo-600 dark:text-indigo-400;
+  }
+
+  /* Input styles */
+  .adw-input {
+    @apply block w-full rounded-md border-gray-300 dark:border-gray-700
+    bg-white dark:bg-gray-800 
+    focus:border-indigo-500 dark:focus:border-indigo-400
+    focus:ring-indigo-500 dark:focus:ring-indigo-400
+    text-sm transition-colors;
+  }
+
+  /* Container with max width and responsive padding */
+  .adw-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Smooth transitions for mode changes */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* Custom scrollbar for Webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* Focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900;
+}
